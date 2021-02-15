@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
 RUN apt-get update && apt-get install -y \
 	    sudo \
 	    wget \
@@ -10,7 +10,10 @@ RUN wget https://repo.continuum.io/archive/Anaconda3-2020.07-Linux-x86_64.sh && 
 
 ENV PATH /opt/anaconda3/bin:$PATH
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip && pip install \
+	    keras==2.3 \
+	    scipy==1.4.1
+RUN pip install tensorflow-gpu
 
 WORKDIR /
 
