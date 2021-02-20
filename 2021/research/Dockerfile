@@ -21,18 +21,26 @@ RUN sudo apt-get install -y nodejs npm && \
 	    sudo npm install n -g && \
 	    sudo n stable && \
 	    sudo apt purge -y nodejs npm
-#RUN exec $SHELL -l
 
 # python packages
 RUN pip3 install --upgrade pip && \
 	    pip3 install -r /build_context/requirements.txt
 
+ENV HOME /opt
+# activate TAB completion
+RUN ipython profile create default && \
+	    echo "c.Completer.use_jedi = False" >> /opt/.ipython/profile_default/ipython_config.py
+
 # jupyterlab extension
 RUN jupyter labextension install jupyterlab_vim && \
+	    # plotly
 	    pip install plotly==4.14.3 && \
-	    jupyter labextension install @jupyterlab/plotly-extension 
+	    jupyter labextension install @jupyterlab/plotly-extension && \
+	    # ipywidget
+	    pip install ipywidgets && \
+	    jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
+	    jupyter labextension install @jupyter-widgets/jupyterlab-manager@1.1
 
-ENV HOME /opt
 RUN mkdir -p /opt/.jupyter/lab/user-settings/@jupyterlab/apputils-extension && \
 	    echo '{"theme":"JupyterLab Dark"}' > /opt/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings && \
 	    mkdir -p /opt/.jupyter/lab/user-settings/@jupyterlab/notebook-extension && \
