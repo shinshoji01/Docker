@@ -45,7 +45,4 @@ RUN mkdir -p /opt/.jupyter/lab/user-settings/@jupyterlab/apputils-extension && \
 
 WORKDIR /work
 
-#CMD ["bash"]
-#CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
-#CMD ["nohup", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port", "8085", "--NotebookApp.token=''", ">", "nohup.out", "&"]
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port", "8085", "--NotebookApp.token=''"]
