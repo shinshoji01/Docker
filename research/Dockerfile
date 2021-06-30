@@ -54,4 +54,4 @@ ENTRYPOINT ["nohup", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-
 #CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
 #CMD ["nohup", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port", "8085", "--NotebookApp.token=''", ">", "nohup.out", "&"]
 #CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port", "8085", "--NotebookApp.token=''"]
-CMD ["8080"]
+#CMD ["8080"]
