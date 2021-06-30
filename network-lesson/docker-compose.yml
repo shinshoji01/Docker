@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  web:
+    build: ./php/
+    ports:
+      - 81:80
+    volumes:
+      - "./php/file/:/var/www/html/"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - python
+    links:
+      - python
+
+  python:
+    build: ./python/
+    volumes:
+      - "./python/file/:/work/"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    tty: true
+    stdin_open: true
