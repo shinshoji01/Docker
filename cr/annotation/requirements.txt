@@ -1,0 +1,1 @@
+/home/shocr/Git/key_point_pose_estimation/docker/annotation/requirements.txt
