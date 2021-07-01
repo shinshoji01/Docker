@@ -25,7 +25,7 @@ RUN sudo apt-get install -y nodejs npm && \
 
 # python packages
 RUN pip3 install --upgrade pip && \
-	    pip3 install -r /build_context/requirements.txt
+	    pip3 install -r /build_context/requirements_nojupyterlab.txt
 
 WORKDIR /work
 

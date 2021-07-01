@@ -1,5 +1,3 @@
-#FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
-#FROM nvidia/cuda:11.1.1-runtime-ubuntu20.04
 FROM nvidia/cuda:10.2-runtime-ubuntu18.04
 
 COPY . /build_context
@@ -45,4 +43,4 @@ RUN mkdir -p /opt/.jupyter/lab/user-settings/@jupyterlab/apputils-extension && \
 
 WORKDIR /work
 
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port", "8085", "--NotebookApp.token=''"]
+ENTRYPOINT ["nohup", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--Noteboo, App.token=''", "--port"]

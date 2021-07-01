@@ -1,0 +1,1 @@
+/home/shocr/Git/camera_wrapper/docker/requirements.txt
