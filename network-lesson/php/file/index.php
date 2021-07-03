@@ -14,8 +14,8 @@
 
 #$cmd = "docker ps -a 2>&1";
 #$cmd = "sudo docker ps -a";
-$cmd = "sudo docker exec -it network-lesson_python_1 nvidia-smi";
-#$cmd = "sudo docker images";
+#$cmd = "sudo docker exec -it network-lesson_python_1 nvidia-smi";
+$cmd = "sudo docker images";
 exec($cmd, $opt, $status);
 print_r($opt);
 #

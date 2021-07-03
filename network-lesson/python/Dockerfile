@@ -1,4 +1,5 @@
-FROM nvidia/cuda:10.2-runtime-ubuntu18.04
+#FROM nvidia/cuda:10.2-runtime-ubuntu18.04
+FROM ubuntu:18.04
 
 COPY . /build_context
 WORKDIR /opt
