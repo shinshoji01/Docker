@@ -5,6 +5,7 @@ docker exec -it python_init cp -r /root/.cache/torch/hub/nvidia_DeepLearningExam
 docker restart python_init
 docker exec -it python_init cp -r /root/.cache/torch/hub/NVIDIA_DeepLearningExamples_torchhub/ /work/cache/
 docker stop python_init
+docker rm python_init
 
-mkdir db/mysql/
-cp bin/mysql_initial/* db/mysql/*
+sudo mkdir db/mysql/
+sudo cp -r bin/mysql_initial/* db/mysql/
