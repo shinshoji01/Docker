@@ -23,7 +23,7 @@ services:
       - "./python/file/:/work/"
       - "./php/file/audio/:/work/audio/"
       - "./python/file/cache/nvidia_DeepLearningExamples_torchhub/:/opt/.cache/torch/hub/nvidia_DeepLearningExamples_torchhub/"
-      - "./python/file/cache/NVIDIA_DeepLearningExamples_torchhub/:/opt/.cache/torch/hub/nvidia_DeepLearningExamples_torchhub/"
+      - "./python/file/cache/NVIDIA_DeepLearningExamples_torchhub/:/opt/.cache/torch/hub/NVIDIA_DeepLearningExamples_torchhub/"
         #runtime: nvidia
         #environment:
         #- NVIDIA_VISIBLE_DEVICES=all
