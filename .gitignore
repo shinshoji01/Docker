@@ -2,3 +2,6 @@ __pycache__/
 .ipynb_checkpoints/
 network-lesson/db/
 php/file/audio/
+*wav
+*pth
+network-lesson/python/file/cache/

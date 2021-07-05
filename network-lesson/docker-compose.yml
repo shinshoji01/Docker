@@ -2,7 +2,7 @@ version: "3"
 
 services:
   web:
-    build: ./php/
+    build: ./php/docker/
     ports:
       - 81:80
     volumes:
@@ -18,15 +18,15 @@ services:
       - mysql
 
   python:
-    build: ./python/
+    build: ./python/docker/
     volumes:
       - "./python/file/:/work/"
       - "./php/file/audio/:/work/audio/"
       - "./python/file/cache/nvidia_DeepLearningExamples_torchhub/:/opt/.cache/torch/hub/nvidia_DeepLearningExamples_torchhub/"
       - "./python/file/cache/NVIDIA_DeepLearningExamples_torchhub/:/opt/.cache/torch/hub/NVIDIA_DeepLearningExamples_torchhub/"
-        #runtime: nvidia
-        #environment:
-        #- NVIDIA_VISIBLE_DEVICES=all
+    runtime: nvidia
+    environment:
+        - NVIDIA_VISIBLE_DEVICES=all
     tty: true
     stdin_open: true
 

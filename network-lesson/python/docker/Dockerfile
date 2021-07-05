@@ -9,6 +9,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y \
 	    libsndfile-dev \
+        libsndfile1 \
 	    python3 \
 	    python3-pip \
 	    sudo \
