@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  keypoint_estimation:
+    build: .
+    ports:
+      - 8090:8090
+    volumes:
+      - "../../../scripts/:/work/"
+      - "~/Git/dataset:/work/dataset/"
+    tty: true
+    stdin_open: true
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all

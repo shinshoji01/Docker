@@ -1,1 +1,20 @@
-/home/shocr/Git/camera_wrapper/docker/docker-compose.yml
+# References
+# - https://unskilled.site/docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AE%E4%B8%AD%E3%81%A7gui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%95%E3%81%9B%E3%82%8B/
+version: "3"
+
+services:
+  camera_wrapper:
+    build: .
+    #image: stereolabs/zed:3.4-runtime-cuda11.0-ubuntu18.04
+    volumes:
+      - "../:/work/"
+      - "/usr/local/zed/:/work/zed/"
+      - "/tmp/.X11-unix/:/tmp/.X11-unix"
+    tty: true
+    stdin_open: true
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - DISPLAY=$DISPLAY
+    privileged: true
+    #entrypoint: "python3 scripts/image_saver.py --cam_type zed --debug --save_dir"

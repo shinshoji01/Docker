@@ -1,7 +1,7 @@
 #FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
 #FROM nvidia/cuda:11.1.1-runtime-ubuntu20.04
-# FROM nvidia/cuda:10.2-runtime-ubuntu18.04
-FROM stereolabs/zed:3.4-runtime-cuda11.0-ubuntu18.04
+#FROM nvidia/cuda:10.2-runtime-ubuntu18.04
+FROM ubuntu:18.04
 
 COPY . /build_context
 WORKDIR /opt
@@ -16,12 +16,7 @@ RUN apt-get update && apt-get install -y \
 	    python3-pip \
 	    sudo \
 	    wget \
-	    vim \
-        libglib2.0-0 \
-        libsm6 \
-        libxrender1 \
-        libxext6 \
-        libgomp1
+	    vim
 
 # python packages
 RUN pip3 install --upgrade pip && \
@@ -29,4 +24,4 @@ RUN pip3 install --upgrade pip && \
 
 WORKDIR /work
 
-CMD ["bash"]
+CMD bash
