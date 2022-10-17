@@ -2,7 +2,9 @@ version: "3"
 
 services:
   research:
-    build: .
+    build:
+        context: .
+        dockerfile: Dockerfile.cpu
     ports:
       - 8085:8085
     volumes:
